@@ -28,6 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 CORS_ORIGIN_WHITELIST=(
     'http://localhost:4200',
+    'http://34.226.75.12:8000',
+    'http://34.226.75.12:3000'
 )
 
 
