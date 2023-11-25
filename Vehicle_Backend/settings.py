@@ -26,6 +26,9 @@ SECRET_KEY = 'django-insecure-_55x=v#eu!(4sc24se93qgzae!cj8#^6_!btp58av#%ez44dg7
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CORS_ORIGIN_WHITELIST=(
+    'http://localhost:4200',
+)
 
 
 # Application definition
@@ -37,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "corsheaders"
+    "corsheaders",
+    "rest_framework",
+    "vehicleApp"
 ]
 
 MIDDLEWARE = [
@@ -76,10 +81,16 @@ WSGI_APPLICATION = 'Vehicle_Backend.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+'default': {
+'ENGINE': 'djongo',
+"CLIENT": {
+"name": "vehicleapp_db",
+"host": "mongodb+srv://josephsanijoseph:josephsanijoseph@cluster0.4fcbux8.mongodb.net/?retryWrites=true&w=majority",
+"username": "josephsanijoseph",
+"password": "josephsanijoseph",
+"authMechanism": "SCRAM-SHA-1",
+},
+ }
 }
 
 
@@ -112,6 +123,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+CORS_ORIGIN_ALLOW_ALL=True
 
 
 # Static files (CSS, JavaScript, Images)
